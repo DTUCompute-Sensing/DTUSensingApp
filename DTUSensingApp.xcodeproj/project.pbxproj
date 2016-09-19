@@ -14,6 +14,8 @@
 		2A817EF41D8BDD3A0040B21D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A817EF21D8BDD3A0040B21D /* LaunchScreen.storyboard */; };
 		2A817EFF1D8BDD3A0040B21D /* DTUSensingAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A817EFE1D8BDD3A0040B21D /* DTUSensingAppTests.swift */; };
 		2A817F0A1D8BDD3A0040B21D /* DTUSensingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A817F091D8BDD3A0040B21D /* DTUSensingAppUITests.swift */; };
+		2A817F341D8BE18E0040B21D /* DTUSenseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A817F331D8BE18E0040B21D /* DTUSenseCore.framework */; };
+		2A817F351D8BE18E0040B21D /* DTUSenseCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A817F331D8BE18E0040B21D /* DTUSenseCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2A817F2E1D8BE0080040B21D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2A817F351D8BE18E0040B21D /* DTUSenseCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2A817EE61D8BDD3A0040B21D /* DTUSensingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DTUSensingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A817EE91D8BDD3A0040B21D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +63,7 @@
 		2A817F051D8BDD3A0040B21D /* DTUSensingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DTUSensingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A817F091D8BDD3A0040B21D /* DTUSensingAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTUSensingAppUITests.swift; sourceTree = "<group>"; };
 		2A817F0B1D8BDD3A0040B21D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A817F331D8BE18E0040B21D /* DTUSenseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DTUSenseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A817F341D8BE18E0040B21D /* DTUSenseCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +95,8 @@
 		2A817EDD1D8BDD3A0040B21D = {
 			isa = PBXGroup;
 			children = (
+				2A817F331D8BE18E0040B21D /* DTUSenseCore.framework */,
+				2A817F321D8BE06F0040B21D /* Frameworks */,
 				2A817EE81D8BDD3A0040B21D /* DTUSensingApp */,
 				2A817EFD1D8BDD3A0040B21D /* DTUSensingAppTests */,
 				2A817F081D8BDD3A0040B21D /* DTUSensingAppUITests */,
@@ -125,6 +145,13 @@
 			path = DTUSensingAppUITests;
 			sourceTree = "<group>";
 		};
+		2A817F321D8BE06F0040B21D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +162,7 @@
 				2A817EE21D8BDD3A0040B21D /* Sources */,
 				2A817EE31D8BDD3A0040B21D /* Frameworks */,
 				2A817EE41D8BDD3A0040B21D /* Resources */,
+				2A817F2E1D8BE0080040B21D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -193,6 +221,7 @@
 				TargetAttributes = {
 					2A817EE51D8BDD3A0040B21D = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 7VLS9S399B;
 						ProvisioningStyle = Automatic;
 					};
 					2A817EF91D8BDD3A0040B21D = {
@@ -412,6 +441,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7VLS9S399B;
 				INFOPLIST_FILE = DTUSensingApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dtu.dk.DTUSensingApp;
@@ -424,6 +454,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7VLS9S399B;
 				INFOPLIST_FILE = DTUSensingApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dtu.dk.DTUSensingApp;
@@ -505,6 +536,7 @@
 				2A817F101D8BDD3A0040B21D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2A817F111D8BDD3A0040B21D /* Build configuration list for PBXNativeTarget "DTUSensingAppTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +545,7 @@
 				2A817F131D8BDD3A0040B21D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2A817F141D8BDD3A0040B21D /* Build configuration list for PBXNativeTarget "DTUSensingAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +554,7 @@
 				2A817F161D8BDD3A0040B21D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

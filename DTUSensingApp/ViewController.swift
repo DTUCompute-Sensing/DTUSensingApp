@@ -7,12 +7,25 @@
 //
 
 import UIKit
+import DTUSenseCore
+
 
 class ViewController: UIViewController {
 
+    let senser = DTUSenceKit.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        if senser.isSensorAvailable(sensor: .Accelerometer){
+            senser.registerSensor(sensor: .Accelerometer)
+            senser.subscribeToSensor(sensorType: .Accelerometer, handler: { (sensorType, data) in
+                let accelerometerData : DTUAccelerometerData = data as! DTUAccelerometerData
+                print("\(sensorType!.rawValue) ---- \(accelerometerData.acceleration!)")
+            })
+            
+            senser.startContinuousSensingWithSensor(sensorType: .Accelerometer)
+        }
     }
 
     override func didReceiveMemoryWarning() {
