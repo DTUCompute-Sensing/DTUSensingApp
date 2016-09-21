@@ -17,22 +17,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if senser.isSensorAvailable(sensor: .Accelerometer){
-            senser.registerSensor(sensor: .Accelerometer)
-            senser.subscribeToSensor(sensorType: .Accelerometer, handler: { (sensorType, data) in
-                let accelerometerData : DTUAccelerometerData = data as! DTUAccelerometerData
-                print("\(sensorType!.rawValue) ---- \(accelerometerData.acceleration!)")
-            })
-            
-            senser.startContinuousSensingWithSensor(sensorType: .Accelerometer)
-        }
+//        if senser.isSensorAvailable(sensor: .Accelerometer){
+//            let accConfig : DTUGyroscopeConfiguration = DTUGyroscopeConfiguration()
+//            accConfig.sampleRate = 5.0
+//            senser.registerSensor(sensor: .Gyroscope, withConfig: accConfig)
+//            senser.subscribeToSensor(sensorType: .Gyroscope, handler: { (sensorType, data) in
+//                let gyroData : DTUGyroscopeData = data as! DTUGyroscopeData
+//                print("\(sensorType!.rawValue) ---- \(gyroData.rotationRate!)")
+//            })
+//            senser.startContinuousSensingWithSensor(sensorType: .Gyroscope)
+//        }
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 

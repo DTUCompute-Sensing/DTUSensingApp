@@ -16,6 +16,9 @@
 		2A817F0A1D8BDD3A0040B21D /* DTUSensingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A817F091D8BDD3A0040B21D /* DTUSensingAppUITests.swift */; };
 		2A817F341D8BE18E0040B21D /* DTUSenseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A817F331D8BE18E0040B21D /* DTUSenseCore.framework */; };
 		2A817F351D8BE18E0040B21D /* DTUSenseCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A817F331D8BE18E0040B21D /* DTUSenseCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2A952A2D1D92924E0031AE0C /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A952A2B1D92924E0031AE0C /* Realm.framework */; };
+		2A952A2E1D92924E0031AE0C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A952A2C1D92924E0031AE0C /* RealmSwift.framework */; };
+		2A952A341D92AFF60031AE0C /* SensersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A952A331D92AFF60031AE0C /* SensersTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,9 @@
 		2A817F091D8BDD3A0040B21D /* DTUSensingAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTUSensingAppUITests.swift; sourceTree = "<group>"; };
 		2A817F0B1D8BDD3A0040B21D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A817F331D8BE18E0040B21D /* DTUSenseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DTUSenseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A952A2B1D92924E0031AE0C /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		2A952A2C1D92924E0031AE0C /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		2A952A331D92AFF60031AE0C /* SensersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SensersTableViewController.swift; path = ViewControllers/SensersTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A952A2D1D92924E0031AE0C /* Realm.framework in Frameworks */,
+				2A952A2E1D92924E0031AE0C /* RealmSwift.framework in Frameworks */,
 				2A817F341D8BE18E0040B21D /* DTUSenseCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,9 +125,11 @@
 		2A817EE81D8BDD3A0040B21D /* DTUSensingApp */ = {
 			isa = PBXGroup;
 			children = (
+				2A952A321D9297720031AE0C /* Storyboards */,
+				2A952A311D9297680031AE0C /* Models */,
+				2A952A351D92B0070031AE0C /* ViewModels */,
+				2A952A301D92975E0031AE0C /* ViewControllers */,
 				2A817EE91D8BDD3A0040B21D /* AppDelegate.swift */,
-				2A817EEB1D8BDD3A0040B21D /* ViewController.swift */,
-				2A817EED1D8BDD3A0040B21D /* Main.storyboard */,
 				2A817EF01D8BDD3A0040B21D /* Assets.xcassets */,
 				2A817EF21D8BDD3A0040B21D /* LaunchScreen.storyboard */,
 				2A817EF51D8BDD3A0040B21D /* Info.plist */,
@@ -148,8 +158,41 @@
 		2A817F321D8BE06F0040B21D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A952A2B1D92924E0031AE0C /* Realm.framework */,
+				2A952A2C1D92924E0031AE0C /* RealmSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2A952A301D92975E0031AE0C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2A817EEB1D8BDD3A0040B21D /* ViewController.swift */,
+				2A952A331D92AFF60031AE0C /* SensersTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2A952A311D9297680031AE0C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		2A952A321D9297720031AE0C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				2A817EED1D8BDD3A0040B21D /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		2A952A351D92B0070031AE0C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +206,7 @@
 				2A817EE31D8BDD3A0040B21D /* Frameworks */,
 				2A817EE41D8BDD3A0040B21D /* Resources */,
 				2A817F2E1D8BE0080040B21D /* Embed Frameworks */,
+				2A952A2F1D9292730031AE0C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -223,6 +267,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 7VLS9S399B;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					2A817EF91D8BDD3A0040B21D = {
 						CreatedOnToolsVersion = 8.0;
@@ -283,12 +332,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2A952A2F1D9292730031AE0C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2A817EE21D8BDD3A0040B21D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2A817EEC1D8BDD3A0040B21D /* ViewController.swift in Sources */,
+				2A952A341D92AFF60031AE0C /* SensersTableViewController.swift in Sources */,
 				2A817EEA1D8BDD3A0040B21D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +510,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7VLS9S399B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = DTUSensingApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dtu.dk.DTUSensingApp;
@@ -455,6 +527,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7VLS9S399B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = DTUSensingApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dtu.dk.DTUSensingApp;
