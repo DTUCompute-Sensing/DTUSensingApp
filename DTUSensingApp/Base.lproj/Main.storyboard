@@ -9,7 +9,7 @@
         <!--Study List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DTUSensingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -21,7 +21,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mko-QW-7qi">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="basicCellIdentifier" textLabel="7nR-Mb-p6q" rowHeight="48" style="IBUITableViewCellStyleDefault" id="Bgj-6F-Oyj">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="7nR-Mb-p6q" rowHeight="48" style="IBUITableViewCellStyleDefault" id="Bgj-6F-Oyj">
                                         <rect key="frame" x="0.0" y="92" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bgj-6F-Oyj" id="Wrw-Tg-8v8">
@@ -64,7 +64,7 @@
         <!--New Study-->
         <scene sceneID="PiI-Z6-zfu">
             <objects>
-                <viewController title="New Study" id="eYM-4m-6wR" sceneMemberID="viewController">
+                <viewController title="New Study" id="eYM-4m-6wR" customClass="StudyViewController" customModule="DTUSensingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rBk-WU-F2D"/>
                         <viewControllerLayoutGuide type="bottom" id="FR5-e3-cuP"/>
@@ -76,7 +76,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Fm-wD-YHR">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="48" id="NW2-Ur-4pt">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="switchWithTextCell" rowHeight="48" id="NW2-Ur-4pt" customClass="SwitchWithTextTableViewCell" customModule="DTUSensingApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NW2-Ur-4pt" id="3ez-dB-E5X">
@@ -88,7 +88,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kRB-Ee-rxl"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kRB-Ee-rxl">
+                                                    <connections>
+                                                        <action selector="onSwitchToggle:" destination="NW2-Ur-4pt" eventType="valueChanged" id="TKo-fa-wkj"/>
+                                                    </connections>
+                                                </switch>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="qWi-8D-iLh" firstAttribute="top" secondItem="3ez-dB-E5X" secondAttribute="top" constant="8" id="7q3-5r-AEQ"/>
@@ -101,8 +105,16 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="label" destination="qWi-8D-iLh" id="orj-sD-dNA"/>
+                                            <outlet property="switchToggle" destination="kRB-Ee-rxl" id="DzL-Px-di1"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="eYM-4m-6wR" id="ybo-Bh-FqI"/>
+                                    <outlet property="delegate" destination="eYM-4m-6wR" id="koP-p9-oLY"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -113,6 +125,9 @@
                             <constraint firstAttribute="trailing" secondItem="3Fm-wD-YHR" secondAttribute="trailing" id="vyN-XO-z3O"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="3Fm-wD-YHR" id="9oy-hN-nB3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FbT-xb-bOi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

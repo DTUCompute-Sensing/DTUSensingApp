@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2A817EEA1D8BDD3A0040B21D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A817EE91D8BDD3A0040B21D /* AppDelegate.swift */; };
-		2A817EEC1D8BDD3A0040B21D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A817EEB1D8BDD3A0040B21D /* ViewController.swift */; };
 		2A817EEF1D8BDD3A0040B21D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A817EED1D8BDD3A0040B21D /* Main.storyboard */; };
 		2A817EF11D8BDD3A0040B21D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A817EF01D8BDD3A0040B21D /* Assets.xcassets */; };
 		2A817EF41D8BDD3A0040B21D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A817EF21D8BDD3A0040B21D /* LaunchScreen.storyboard */; };
@@ -18,7 +17,13 @@
 		2A817F351D8BE18E0040B21D /* DTUSenseCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A817F331D8BE18E0040B21D /* DTUSenseCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A952A2D1D92924E0031AE0C /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A952A2B1D92924E0031AE0C /* Realm.framework */; };
 		2A952A2E1D92924E0031AE0C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A952A2C1D92924E0031AE0C /* RealmSwift.framework */; };
-		2A952A341D92AFF60031AE0C /* SensersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A952A331D92AFF60031AE0C /* SensersTableViewController.swift */; };
+		2A952A371D92B09A0031AE0C /* Study.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A952A361D92B09A0031AE0C /* Study.swift */; };
+		2A952A391D92B1BD0031AE0C /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A952A381D92B1BD0031AE0C /* Sensor.swift */; };
+		2A952A3B1D92B2220031AE0C /* Accelerometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A952A3A1D92B2220031AE0C /* Accelerometer.swift */; };
+		2A952A3D1D92B5A50031AE0C /* StudyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A952A3C1D92B5A50031AE0C /* StudyViewModel.swift */; };
+		2A952A3F1D92B6910031AE0C /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A952A3E1D92B6910031AE0C /* StudyViewController.swift */; };
+		2A952A421D9300A20031AE0C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A952A411D9300A20031AE0C /* Protocols.swift */; };
+		2A952A451D93113A0031AE0C /* SwitchWithTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A952A441D93113A0031AE0C /* SwitchWithTextTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +60,6 @@
 /* Begin PBXFileReference section */
 		2A817EE61D8BDD3A0040B21D /* DTUSensingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DTUSensingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A817EE91D8BDD3A0040B21D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2A817EEB1D8BDD3A0040B21D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2A817EEE1D8BDD3A0040B21D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2A817EF01D8BDD3A0040B21D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A817EF31D8BDD3A0040B21D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -69,7 +73,13 @@
 		2A817F331D8BE18E0040B21D /* DTUSenseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DTUSenseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A952A2B1D92924E0031AE0C /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		2A952A2C1D92924E0031AE0C /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
-		2A952A331D92AFF60031AE0C /* SensersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SensersTableViewController.swift; path = ViewControllers/SensersTableViewController.swift; sourceTree = "<group>"; };
+		2A952A361D92B09A0031AE0C /* Study.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Study.swift; path = Models/Study.swift; sourceTree = "<group>"; };
+		2A952A381D92B1BD0031AE0C /* Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sensor.swift; path = Models/Sensor.swift; sourceTree = "<group>"; };
+		2A952A3A1D92B2220031AE0C /* Accelerometer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Accelerometer.swift; path = Models/Accelerometer.swift; sourceTree = "<group>"; };
+		2A952A3C1D92B5A50031AE0C /* StudyViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StudyViewModel.swift; path = ViewModel/StudyViewModel.swift; sourceTree = "<group>"; };
+		2A952A3E1D92B6910031AE0C /* StudyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StudyViewController.swift; path = ViewControllers/StudyViewController.swift; sourceTree = "<group>"; };
+		2A952A411D9300A20031AE0C /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = Protocols/Protocols.swift; sourceTree = "<group>"; };
+		2A952A441D93113A0031AE0C /* SwitchWithTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchWithTextTableViewCell.swift; path = TableViewCell/SwitchWithTextTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +135,7 @@
 		2A817EE81D8BDD3A0040B21D /* DTUSensingApp */ = {
 			isa = PBXGroup;
 			children = (
+				2A952A401D93007C0031AE0C /* Protocols */,
 				2A952A321D9297720031AE0C /* Storyboards */,
 				2A952A311D9297680031AE0C /* Models */,
 				2A952A351D92B0070031AE0C /* ViewModels */,
@@ -167,8 +178,8 @@
 		2A952A301D92975E0031AE0C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2A817EEB1D8BDD3A0040B21D /* ViewController.swift */,
-				2A952A331D92AFF60031AE0C /* SensersTableViewController.swift */,
+				2A952A431D9310B40031AE0C /* TableViewCells */,
+				2A952A3E1D92B6910031AE0C /* StudyViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -176,6 +187,9 @@
 		2A952A311D9297680031AE0C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2A952A361D92B09A0031AE0C /* Study.swift */,
+				2A952A381D92B1BD0031AE0C /* Sensor.swift */,
+				2A952A3A1D92B2220031AE0C /* Accelerometer.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -191,8 +205,25 @@
 		2A952A351D92B0070031AE0C /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				2A952A3C1D92B5A50031AE0C /* StudyViewModel.swift */,
 			);
 			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		2A952A401D93007C0031AE0C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2A952A411D9300A20031AE0C /* Protocols.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		2A952A431D9310B40031AE0C /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				2A952A441D93113A0031AE0C /* SwitchWithTextTableViewCell.swift */,
+			);
+			name = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,9 +386,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A817EEC1D8BDD3A0040B21D /* ViewController.swift in Sources */,
-				2A952A341D92AFF60031AE0C /* SensersTableViewController.swift in Sources */,
+				2A952A451D93113A0031AE0C /* SwitchWithTextTableViewCell.swift in Sources */,
+				2A952A391D92B1BD0031AE0C /* Sensor.swift in Sources */,
+				2A952A3F1D92B6910031AE0C /* StudyViewController.swift in Sources */,
+				2A952A3D1D92B5A50031AE0C /* StudyViewModel.swift in Sources */,
+				2A952A3B1D92B2220031AE0C /* Accelerometer.swift in Sources */,
 				2A817EEA1D8BDD3A0040B21D /* AppDelegate.swift in Sources */,
+				2A952A371D92B09A0031AE0C /* Study.swift in Sources */,
+				2A952A421D9300A20031AE0C /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
