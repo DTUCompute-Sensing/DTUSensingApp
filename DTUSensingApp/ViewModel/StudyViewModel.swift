@@ -8,54 +8,90 @@
 
 import Foundation
 import DTUSenseCore
-
+import RealmSwift
 
 class StudyViewModel : SwitchWithTextViewPresentable {
-    var sensor : Sensor!
-    var sensors : [Sensor] = []
-    let senseKit = DTUSenceKit.sharedInstance
     
+    var sensors : [String:Sensor] = [:]
+    let senseKit = DTUSenceKit.sharedInstance
+    let realm = try! Realm()
     
     init(withSensor sensor: Sensor) {
-        self.sensors.append(sensor)
+        self.sensors = [sensor.type.rawValue:sensor]
     }
     
-//    func activateSensor() {
-//        if senseKit.isSensorAvailable(sensor: .Accelerometer){
-//            let config : DTUAccelerometerConfiguration = DTUAccelerometerConfiguration()
-//            config.sampleRate = 5.0
-//            senseKit.registerSensor(sensor: .Accelerometer, withConfig: config)
-//            let accelerometer = Accelerometer()
-//            accelerometer.id = SensorType.Accelerometer.rawValue
-//
-//            self.study.sensors.append(accelerometer)
-//
-//            senseKit.subscribeToSensor(sensorType: .Accelerometer, handler: { (sensorType, data) in
-//                let accelerometerData : DTUAccelerometerData = data as! DTUAccelerometerData
-//                print("\(sensorType!.rawValue) ---- \(accelerometerData.acceleration!)")
-//                
-//                //Create sensor and add to study
-//                accelerometer.accelaration_x = (accelerometerData.acceleration?.x)!
-//                accelerometer.accelaration_y = (accelerometerData.acceleration?.y)!
-//                accelerometer.accelaration_z = (accelerometerData.acceleration?.z)!
-//                
-//                
-//                
-//            })
-//            senseKit.startContinuousSensingWithSensor(sensorType: .Gyroscope)
-//        }
-//    }
+    func activateAccelerometerSensor() {
+        if senseKit.isSensorAvailable(sensor: .Accelerometer){
+            let config : DTUAccelerometerConfiguration = DTUAccelerometerConfiguration()
+            config.sampleRate = 5.0
+            senseKit.registerSensor(sensor: .Accelerometer, withConfig: config)
+            senseKit.subscribeToSensor(sensorType: .Accelerometer, handler: { (sensorType, data) in
+                let accelerometerData : DTUAccelerometerData = data as! DTUAccelerometerData
+                print("\(sensorType!.rawValue) ---- \(accelerometerData.acceleration!)")
+                
+//                let accelerometer = self.sensors[SensorType.Accelerometer.rawValue] as! Accelerometer
+                let accelerometer = Accelerometer()
+                accelerometer.id = SensorType.Accelerometer.rawValue
+                accelerometer.date = NSDate()
+                accelerometer.accelaration_x = (accelerometerData.acceleration?.x)!
+                accelerometer.accelaration_y = (accelerometerData.acceleration?.y)!
+                accelerometer.accelaration_z = (accelerometerData.acceleration?.z)!
+                
+                try! self.realm.write {
+                    self.realm.add(accelerometer)
+                }
+                
+            })
+            senseKit.startContinuousSensingWithSensor(sensorType: .Accelerometer)
+        }
+    }
     
+    func stopAccelerometerSensor() {
+        senseKit.stopContinuousSensingWithSensor(sensor: .Accelerometer)
+    }
+
+
+    func activateGyroscopeSensor() {
+        if senseKit.isSensorAvailable(sensor:.Gyroscope){
+            let config : DTUGyroscopeConfiguration = DTUGyroscopeConfiguration()
+            config.sampleRate = 5.0
+            senseKit.registerSensor(sensor: .Gyroscope, withConfig: config)
+            senseKit.subscribeToSensor(sensorType: .Gyroscope, handler: { (sensorType, data) in
+                let gyroscopeData : DTUGyroscopeData = data as! DTUGyroscopeData
+                print("\(sensorType!.rawValue) ---- \(gyroscopeData.rotationRate!)")
+                
+//                let gyroscope = self.sensors[SensorType.Gyroscope.rawValue] as! Gyroscope
+                //Create sensor and add to study
+                let gyroscope = Gyroscope()
+                gyroscope.id = SensorType.Gyroscope.rawValue
+                gyroscope.date = NSDate()
+                gyroscope.rotation_x = (gyroscopeData.rotationRate?.x)!
+                gyroscope.rotation_y = (gyroscopeData.rotationRate?.y)!
+                gyroscope.rotation_z = (gyroscopeData.rotationRate?.z)!
+                
+                try! self.realm.write {
+                    self.realm.add(gyroscope)
+                }
+            })
+            senseKit.startContinuousSensingWithSensor(sensorType: .Gyroscope)
+        }
+    }
     
+    func stopGyroscopeSensor() {
+        senseKit.stopContinuousSensingWithSensor(sensor: .Gyroscope)
+    }
+
+
+
 }
 
 
 extension StudyViewModel  {
     
     var text: String {
-        if sensors.last?.type == .Accelerometer {
+        if sensors["Accelerometer"]?.type == .Accelerometer {
             return "Accelerometer"
-        }else if sensors.last?.type == .Gyroscope {
+        }else if sensors["Gyroscope"]?.type == .Gyroscope {
             return "Gyroscope"
         }else{
             return "Undefined"
@@ -73,10 +109,25 @@ extension StudyViewModel  {
     var switchColor: UIColor { return .yellow }
     
     func onSwitchToggleOn(on: Bool) {
-        if on {
-            print("Accelerometer Active")
-        } else {
-            print("Accelerometer Inactive")
+        if sensors["Accelerometer"]?.type == .Accelerometer {
+            if on {
+                print("Accelerometer Active")
+                activateAccelerometerSensor()
+            } else {
+                print("Accelerometer Inactive")
+                stopAccelerometerSensor()
+                
+            }
+        }else if sensors["Gyroscope"]?.type == .Gyroscope {
+            if on {
+                print("Gyroscope Active")
+                activateGyroscopeSensor()
+            } else {
+                print("Gyroscope Inactive")
+                stopGyroscopeSensor()
+            }
         }
+        
+        
     }
 }

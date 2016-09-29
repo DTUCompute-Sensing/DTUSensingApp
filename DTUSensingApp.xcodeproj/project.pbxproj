@@ -24,6 +24,10 @@
 		2A952A3F1D92B6910031AE0C /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A952A3E1D92B6910031AE0C /* StudyViewController.swift */; };
 		2A952A421D9300A20031AE0C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A952A411D9300A20031AE0C /* Protocols.swift */; };
 		2A952A451D93113A0031AE0C /* SwitchWithTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A952A441D93113A0031AE0C /* SwitchWithTextTableViewCell.swift */; };
+		2A952A471D944DE80031AE0C /* Gyroscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A952A461D944DE80031AE0C /* Gyroscope.swift */; };
+		2AC34BBE1D959B5600F8A070 /* DetailLabelWithTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC34BBD1D959B5600F8A070 /* DetailLabelWithTitleTableViewCell.swift */; };
+		2AC34BC01D959BF200F8A070 /* SensorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC34BBF1D959BF200F8A070 /* SensorViewModel.swift */; };
+		2AC34BC21D9A6C2000F8A070 /* DetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC34BC11D9A6C2000F8A070 /* DetailListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +84,10 @@
 		2A952A3E1D92B6910031AE0C /* StudyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StudyViewController.swift; path = ViewControllers/StudyViewController.swift; sourceTree = "<group>"; };
 		2A952A411D9300A20031AE0C /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = Protocols/Protocols.swift; sourceTree = "<group>"; };
 		2A952A441D93113A0031AE0C /* SwitchWithTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchWithTextTableViewCell.swift; path = TableViewCell/SwitchWithTextTableViewCell.swift; sourceTree = "<group>"; };
+		2A952A461D944DE80031AE0C /* Gyroscope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gyroscope.swift; path = Models/Gyroscope.swift; sourceTree = "<group>"; };
+		2AC34BBD1D959B5600F8A070 /* DetailLabelWithTitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailLabelWithTitleTableViewCell.swift; path = TableViewCell/DetailLabelWithTitleTableViewCell.swift; sourceTree = "<group>"; };
+		2AC34BBF1D959BF200F8A070 /* SensorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SensorViewModel.swift; path = ViewModel/SensorViewModel.swift; sourceTree = "<group>"; };
+		2AC34BC11D9A6C2000F8A070 /* DetailListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailListViewController.swift; path = ViewControllers/DetailListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +188,7 @@
 			children = (
 				2A952A431D9310B40031AE0C /* TableViewCells */,
 				2A952A3E1D92B6910031AE0C /* StudyViewController.swift */,
+				2AC34BC11D9A6C2000F8A070 /* DetailListViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -190,6 +199,7 @@
 				2A952A361D92B09A0031AE0C /* Study.swift */,
 				2A952A381D92B1BD0031AE0C /* Sensor.swift */,
 				2A952A3A1D92B2220031AE0C /* Accelerometer.swift */,
+				2A952A461D944DE80031AE0C /* Gyroscope.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -206,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				2A952A3C1D92B5A50031AE0C /* StudyViewModel.swift */,
+				2AC34BBF1D959BF200F8A070 /* SensorViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -222,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				2A952A441D93113A0031AE0C /* SwitchWithTextTableViewCell.swift */,
+				2AC34BBD1D959B5600F8A070 /* DetailLabelWithTitleTableViewCell.swift */,
 			);
 			name = TableViewCells;
 			sourceTree = "<group>";
@@ -392,6 +404,10 @@
 				2A952A3D1D92B5A50031AE0C /* StudyViewModel.swift in Sources */,
 				2A952A3B1D92B2220031AE0C /* Accelerometer.swift in Sources */,
 				2A817EEA1D8BDD3A0040B21D /* AppDelegate.swift in Sources */,
+				2AC34BC01D959BF200F8A070 /* SensorViewModel.swift in Sources */,
+				2AC34BC21D9A6C2000F8A070 /* DetailListViewController.swift in Sources */,
+				2AC34BBE1D959B5600F8A070 /* DetailLabelWithTitleTableViewCell.swift in Sources */,
+				2A952A471D944DE80031AE0C /* Gyroscope.swift in Sources */,
 				2A952A371D92B09A0031AE0C /* Study.swift in Sources */,
 				2A952A421D9300A20031AE0C /* Protocols.swift in Sources */,
 			);

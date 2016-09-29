@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-public enum SensorType:String {
+public enum SensorType : String {
     case Battery
     case Accelerometer
     case Gyroscope
@@ -19,5 +19,6 @@ public enum SensorType:String {
 class Sensor: Object {
     
     dynamic var id = ""
+    dynamic var date : NSDate?
     var type : SensorType!
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 
 enum StudySection : Int {
@@ -40,6 +41,7 @@ enum StudySection : Int {
 
 enum CellIdentifiers:String {
     case switchWithTextCell
+    case DetailLabelWithTitle
 }
 
 
@@ -52,16 +54,35 @@ class StudyViewController: UIViewController {
         super.viewDidLoad()
 
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailListSegue" {
+            let vc = segue.destination as! DetailListViewController
+            vc.sensor = sender as! Sensor?
+        }
+    }
 }
 
 
 extension StudyViewController : UITableViewDelegate {
-    
-  
-    
-    
-    
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //performSegue(withIdentifier: "detailListSegue", sender: )
+        switch indexPath.row {
+        case 0:
+            let sensor = Accelerometer()
+            sensor.type = .Accelerometer
+            sensor.id = SensorType.Accelerometer.rawValue
+            performSegue(withIdentifier: "detailListSegue", sender: sensor)
+        case 1:
+            let sensor = Sensor()
+            sensor.type = .Gyroscope
+            sensor.id = SensorType.Gyroscope.rawValue
+            performSegue(withIdentifier: "detailListSegue", sender: sensor)
+        default: break
+            
+        }
+    }
 }
 
 
@@ -103,6 +124,9 @@ extension StudyViewController : UITableViewDataSource {
     }
     
     
+ 
+    
+    
     private func cellForMotionSectionForRowAtIndexPath(indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.switchWithTextCell.rawValue, for: indexPath) as? SwitchWithTextTableViewCell else {
             return UITableViewCell()
@@ -110,7 +134,7 @@ extension StudyViewController : UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            let sensor = Sensor()
+            let sensor = Accelerometer()
             sensor.type = .Accelerometer
             sensor.id = SensorType.Accelerometer.rawValue
             let studyViewModel = StudyViewModel(withSensor: sensor)
