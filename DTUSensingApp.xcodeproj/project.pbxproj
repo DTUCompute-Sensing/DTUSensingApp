@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A1DDC7B1DA3F5D800EB4371 /* Magnetometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1DDC7A1DA3F5D800EB4371 /* Magnetometer.swift */; };
 		2A817EEA1D8BDD3A0040B21D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A817EE91D8BDD3A0040B21D /* AppDelegate.swift */; };
 		2A817EEF1D8BDD3A0040B21D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A817EED1D8BDD3A0040B21D /* Main.storyboard */; };
 		2A817EF11D8BDD3A0040B21D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A817EF01D8BDD3A0040B21D /* Assets.xcassets */; };
@@ -25,6 +26,8 @@
 		2A952A421D9300A20031AE0C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A952A411D9300A20031AE0C /* Protocols.swift */; };
 		2A952A451D93113A0031AE0C /* SwitchWithTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A952A441D93113A0031AE0C /* SwitchWithTextTableViewCell.swift */; };
 		2A952A471D944DE80031AE0C /* Gyroscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A952A461D944DE80031AE0C /* Gyroscope.swift */; };
+		2A9C66F81DA297D4002C4439 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A9C66F71DA297D4002C4439 /* CoreLocation.framework */; };
+		2A9C66FA1DA2B736002C4439 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A9C66F91DA2B736002C4439 /* MessageUI.framework */; };
 		2AC34BBE1D959B5600F8A070 /* DetailLabelWithTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC34BBD1D959B5600F8A070 /* DetailLabelWithTitleTableViewCell.swift */; };
 		2AC34BC01D959BF200F8A070 /* SensorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC34BBF1D959BF200F8A070 /* SensorViewModel.swift */; };
 		2AC34BC21D9A6C2000F8A070 /* DetailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC34BC11D9A6C2000F8A070 /* DetailListViewController.swift */; };
@@ -62,6 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2A1DDC7A1DA3F5D800EB4371 /* Magnetometer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Magnetometer.swift; path = Models/Magnetometer.swift; sourceTree = "<group>"; };
 		2A817EE61D8BDD3A0040B21D /* DTUSensingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DTUSensingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A817EE91D8BDD3A0040B21D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A817EEE1D8BDD3A0040B21D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 		2A952A411D9300A20031AE0C /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = Protocols/Protocols.swift; sourceTree = "<group>"; };
 		2A952A441D93113A0031AE0C /* SwitchWithTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchWithTextTableViewCell.swift; path = TableViewCell/SwitchWithTextTableViewCell.swift; sourceTree = "<group>"; };
 		2A952A461D944DE80031AE0C /* Gyroscope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Gyroscope.swift; path = Models/Gyroscope.swift; sourceTree = "<group>"; };
+		2A9C66F71DA297D4002C4439 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2A9C66F91DA2B736002C4439 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		2AC34BBD1D959B5600F8A070 /* DetailLabelWithTitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailLabelWithTitleTableViewCell.swift; path = TableViewCell/DetailLabelWithTitleTableViewCell.swift; sourceTree = "<group>"; };
 		2AC34BBF1D959BF200F8A070 /* SensorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SensorViewModel.swift; path = ViewModel/SensorViewModel.swift; sourceTree = "<group>"; };
 		2AC34BC11D9A6C2000F8A070 /* DetailListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailListViewController.swift; path = ViewControllers/DetailListViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A9C66FA1DA2B736002C4439 /* MessageUI.framework in Frameworks */,
+				2A9C66F81DA297D4002C4439 /* CoreLocation.framework in Frameworks */,
 				2A952A2D1D92924E0031AE0C /* Realm.framework in Frameworks */,
 				2A952A2E1D92924E0031AE0C /* RealmSwift.framework in Frameworks */,
 				2A817F341D8BE18E0040B21D /* DTUSenseCore.framework in Frameworks */,
@@ -177,6 +185,8 @@
 		2A817F321D8BE06F0040B21D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A9C66F91DA2B736002C4439 /* MessageUI.framework */,
+				2A9C66F71DA297D4002C4439 /* CoreLocation.framework */,
 				2A952A2B1D92924E0031AE0C /* Realm.framework */,
 				2A952A2C1D92924E0031AE0C /* RealmSwift.framework */,
 			);
@@ -200,6 +210,7 @@
 				2A952A381D92B1BD0031AE0C /* Sensor.swift */,
 				2A952A3A1D92B2220031AE0C /* Accelerometer.swift */,
 				2A952A461D944DE80031AE0C /* Gyroscope.swift */,
+				2A1DDC7A1DA3F5D800EB4371 /* Magnetometer.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -398,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A1DDC7B1DA3F5D800EB4371 /* Magnetometer.swift in Sources */,
 				2A952A451D93113A0031AE0C /* SwitchWithTextTableViewCell.swift in Sources */,
 				2A952A391D92B1BD0031AE0C /* Sensor.swift in Sources */,
 				2A952A3F1D92B6910031AE0C /* StudyViewController.swift in Sources */,

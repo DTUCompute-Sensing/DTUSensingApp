@@ -49,7 +49,6 @@ class StudyViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -79,6 +78,11 @@ extension StudyViewController : UITableViewDelegate {
             sensor.type = .Gyroscope
             sensor.id = SensorType.Gyroscope.rawValue
             performSegue(withIdentifier: "detailListSegue", sender: sensor)
+        case 2:
+            let sensor = Sensor()
+            sensor.type = .Magnetometer
+            sensor.id = SensorType.Magnetometer.rawValue
+            performSegue(withIdentifier: "detailListSegue", sender: sensor)
         default: break
             
         }
@@ -105,7 +109,7 @@ extension StudyViewController : UITableViewDataSource {
         
         switch section {
         case .Motion:
-            return 2
+            return 3
         default: return 1
         }
     }
@@ -123,10 +127,7 @@ extension StudyViewController : UITableViewDataSource {
         }
     }
     
-    
- 
-    
-    
+
     private func cellForMotionSectionForRowAtIndexPath(indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.switchWithTextCell.rawValue, for: indexPath) as? SwitchWithTextTableViewCell else {
             return UITableViewCell()
@@ -145,12 +146,15 @@ extension StudyViewController : UITableViewDataSource {
             sensor.id = SensorType.Gyroscope.rawValue
             let studyViewModel = StudyViewModel(withSensor: sensor)
             cell.configure(withPresenter: studyViewModel)
+        case 2:
+            let sensor = Sensor()
+            sensor.type = .Magnetometer
+            sensor.id = SensorType.Magnetometer.rawValue
+            let studyViewModel = StudyViewModel(withSensor: sensor)
+            cell.configure(withPresenter: studyViewModel)
         default: break
             
         }
-        
-
-        
         return cell
     }
     

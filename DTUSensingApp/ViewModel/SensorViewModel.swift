@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import MessageUI
 
 class SensorViewModel : DetailLabelWithTitlePresentable  {
 
@@ -26,6 +27,8 @@ class SensorViewModel : DetailLabelWithTitlePresentable  {
             return  realm.objects(Accelerometer.self).count
         case .Gyroscope:
             return  realm.objects(Gyroscope.self).count
+        case .Magnetometer:
+            return  realm.objects(Magnetometer.self).count
         default:
             return 0
         }
@@ -36,32 +39,41 @@ class SensorViewModel : DetailLabelWithTitlePresentable  {
 
 extension SensorViewModel  {
 
-    var text: String {return (sensor?.type.rawValue)!}
+    var text: String {
+        switch sensor!.type! {
+        case .Accelerometer:
+            let values = realm.objects(Accelerometer.self)
+            let value = values[index] as Accelerometer
+            let x = Double(round(100000*value.accelaration_x)/100000)
+            let y = Double(round(100000*value.accelaration_y)/100000)
+            let z = Double(round(100000*value.accelaration_z)/100000)
+            return "x : \(x) y : \(y) z : \(z)"
+        case .Gyroscope:
+            let values = realm.objects(Gyroscope.self)
+            let value = values[index] as Gyroscope
+            let x = Double(round(100000*value.rotation_x)/100000)
+            let y = Double(round(100000*value.rotation_y)/100000)
+            let z = Double(round(100000*value.rotation_z)/100000)
+            return "x : \(x) y : \(y) z : \(z)"
+        case .Magnetometer:
+            let values = realm.objects(Magnetometer.self)
+            let value = values[index] as Magnetometer
+            let x = Double(round(100000*value.magnatic_x)/100000)
+            let y = Double(round(100000*value.magnatic_y)/100000)
+            let z = Double(round(100000*value.magnatic_z)/100000)
+            return "x : \(x) y : \(y) z : \(z)"
+        default:
+            return ""
+        }
+    }
     var textColor: UIColor { return .black }
-    var font: UIFont { return .systemFont(ofSize: 15.0) }
-    
+    var font: UIFont { return .systemFont(ofSize: 12.0) }
     
 }
 
 
 extension SensorViewModel {
-    var detailText: String {
-        
-        switch sensor!.type! {
-        case .Accelerometer:
-            let values = realm.objects(Accelerometer.self)
-            let value = values[index] as Accelerometer
-            return "\(value.accelaration_x), \(value.accelaration_y), \(value.accelaration_z)"
-        case .Gyroscope:
-                let values = realm.objects(Gyroscope.self)
-                let value = values[index] as Gyroscope
-                return "\(value.rotation_x), \(value.rotation_y), \(value.rotation_z)"
-        default:
-            return ""
-        }
-
-    
-    }
+    var detailText: String {return ""}
     var detailTextColor: UIColor {return .black}
     var detailFont: UIFont {return .systemFont(ofSize: 15.0)}
 }

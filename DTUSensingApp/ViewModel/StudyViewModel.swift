@@ -20,6 +20,8 @@ class StudyViewModel : SwitchWithTextViewPresentable {
         self.sensors = [sensor.type.rawValue:sensor]
     }
     
+    //MARK : Accelerometer
+    
     func activateAccelerometerSensor() {
         if senseKit.isSensorAvailable(sensor: .Accelerometer){
             let config : DTUAccelerometerConfiguration = DTUAccelerometerConfiguration()
@@ -29,10 +31,9 @@ class StudyViewModel : SwitchWithTextViewPresentable {
                 let accelerometerData : DTUAccelerometerData = data as! DTUAccelerometerData
                 print("\(sensorType!.rawValue) ---- \(accelerometerData.acceleration!)")
                 
-//                let accelerometer = self.sensors[SensorType.Accelerometer.rawValue] as! Accelerometer
                 let accelerometer = Accelerometer()
+                accelerometer.date = accelerometerData.timeStamp
                 accelerometer.id = SensorType.Accelerometer.rawValue
-                accelerometer.date = NSDate()
                 accelerometer.accelaration_x = (accelerometerData.acceleration?.x)!
                 accelerometer.accelaration_y = (accelerometerData.acceleration?.y)!
                 accelerometer.accelaration_z = (accelerometerData.acceleration?.z)!
@@ -51,6 +52,8 @@ class StudyViewModel : SwitchWithTextViewPresentable {
     }
 
 
+    //MARK : Gyroscope
+
     func activateGyroscopeSensor() {
         if senseKit.isSensorAvailable(sensor:.Gyroscope){
             let config : DTUGyroscopeConfiguration = DTUGyroscopeConfiguration()
@@ -60,9 +63,8 @@ class StudyViewModel : SwitchWithTextViewPresentable {
                 let gyroscopeData : DTUGyroscopeData = data as! DTUGyroscopeData
                 print("\(sensorType!.rawValue) ---- \(gyroscopeData.rotationRate!)")
                 
-//                let gyroscope = self.sensors[SensorType.Gyroscope.rawValue] as! Gyroscope
-                //Create sensor and add to study
                 let gyroscope = Gyroscope()
+                gyroscope.date = gyroscopeData.timeStamp
                 gyroscope.id = SensorType.Gyroscope.rawValue
                 gyroscope.date = NSDate()
                 gyroscope.rotation_x = (gyroscopeData.rotationRate?.x)!
@@ -80,6 +82,38 @@ class StudyViewModel : SwitchWithTextViewPresentable {
     func stopGyroscopeSensor() {
         senseKit.stopContinuousSensingWithSensor(sensor: .Gyroscope)
     }
+    
+    //MARK : Magnetometer
+
+    
+    func activateMagnetometerSensor() {
+        if senseKit.isSensorAvailable(sensor:.Magnetometer){
+            let config : DTUMagnetometerConfiguration = DTUMagnetometerConfiguration()
+            config.sampleRate = 5.0
+            senseKit.registerSensor(sensor: .Magnetometer, withConfig: config)
+            senseKit.subscribeToSensor(sensorType: .Magnetometer, handler: { (sensorType, data) in
+                let magnetometerData : DTUMagnetometerData = data as! DTUMagnetometerData
+                print("\(sensorType!.rawValue) ---- \(magnetometerData.magneticField!)")
+                
+                let magnetometer = Magnetometer()
+                magnetometer.date = magnetometerData.timeStamp
+                magnetometer.id = SensorType.Magnetometer.rawValue
+                magnetometer.date = NSDate()
+                magnetometer.magnatic_x = (magnetometerData.magneticField?.x)!
+                magnetometer.magnatic_y = (magnetometerData.magneticField?.y)!
+                magnetometer.magnatic_z = (magnetometerData.magneticField?.z)!
+                
+                try! self.realm.write {
+                    self.realm.add(magnetometer)
+                }
+            })
+            senseKit.startContinuousSensingWithSensor(sensorType: .Magnetometer)
+        }
+    }
+    
+    func stopMagnetometerSensor() {
+        senseKit.stopContinuousSensingWithSensor(sensor: .Magnetometer)
+    }
 
 
 
@@ -93,6 +127,8 @@ extension StudyViewModel  {
             return "Accelerometer"
         }else if sensors["Gyroscope"]?.type == .Gyroscope {
             return "Gyroscope"
+        }else if sensors["Magnetometer"]?.type == .Magnetometer {
+            return "Magnetometer"
         }else{
             return "Undefined"
         }
@@ -126,8 +162,14 @@ extension StudyViewModel  {
                 print("Gyroscope Inactive")
                 stopGyroscopeSensor()
             }
+        }else if sensors["Magnetometer"]?.type == .Magnetometer {
+            if on {
+                print("Magnetometer Active")
+                activateMagnetometerSensor()
+            } else {
+                print("Magnetometer Inactive")
+                stopMagnetometerSensor()
+            }
         }
-        
-        
     }
 }

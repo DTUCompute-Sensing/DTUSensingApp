@@ -13,11 +13,13 @@ public enum SensorType : String {
     case Battery
     case Accelerometer
     case Gyroscope
+    case Magnetometer
 }
 
 
 class Sensor: Object {
     
+    dynamic var stydyID = ""
     dynamic var id = ""
     dynamic var date : NSDate?
     var type : SensorType!
